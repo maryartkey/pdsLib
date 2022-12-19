@@ -1,0 +1,12 @@
+# ninja log v5
+13	629	6930922142250291	pdsLib/CMakeFiles/pdsLib.dir/pdsLib.cpp.obj	a69ec1678909843c
+630	847	6930922143990684	pdsLib/pdsLib.exe	ebcc8a7b97828405
+7	206	6930922471876867	build.ninja	54deb023577efc3a
+3	651	6930927173086043	pdsLib/CMakeFiles/pdsLib.dir/pdsLib.cpp.obj	a69ec1678909843c
+651	825	6930927174396343	pdsLib/pdsLib.exe	ebcc8a7b97828405
+13	547	6930931094238572	pdsLib/CMakeFiles/pdsLib.dir/pdsLib.cpp.obj	a69ec1678909843c
+548	824	6930931096008955	pdsLib/pdsLib.exe	ebcc8a7b97828405
+11	671	6930931476295414	pdsLib/CMakeFiles/pdsLib.dir/pdsLib.cpp.obj	a69ec1678909843c
+672	836	6930931477505705	pdsLib/pdsLib.exe	ebcc8a7b97828405
+11	608	6930931902012604	pdsLib/CMakeFiles/pdsLib.dir/pdsLib.cpp.obj	a69ec1678909843c
+609	788	6930931903382908	pdsLib/pdsLib.exe	ebcc8a7b97828405
