@@ -5,6 +5,8 @@
 #include <sstream>
 #include <vector>
 #include <cassert>
+#include <memory>
+
 
 namespace pdsLib
 {
@@ -41,11 +43,27 @@ namespace pdsLib
 		/*vector allocated memory (used for hashing)*/
 		int bufferSize;
 
-	public:
 		/*double hash method:
 		two hash functions that return coprime natural numbers*/
-		struct HashFunction1;
-		struct HashFunction2;
+		struct HashFunction1
+		{
+			int operator()(const TKey& key, const int tableSize) const
+			{
+				const std::string s = toString(key);
+				return HashFunctionHorner(s, tableSize, tableSize + 1);
+			}
+		};
+		struct HashFunction2
+		{
+			int operator()(const TKey& key, const int tableSize) const
+			{
+				const std::string s = toString(key);
+				return HashFunctionHorner(s, tableSize, tableSize - 1);
+			}
+		};
+
+	public:
+
 
 		/*default constructor*/
 		HashTable();
@@ -112,27 +130,6 @@ namespace pdsLib
 		return hashResult;
 	}
 
-	/*double hash method:
-	two hash functions that return coprime natural numbers*/
-	template <class T, class TKey>
-	struct HashTable<T, TKey>::HashFunction1
-	{
-		int operator()(const TKey& key, const int tableSize) const
-		{
-			const std::string s = toString(key);
-			return HashFunctionHorner(s, tableSize, tableSize + 1);
-		}
-	};
-
-	template <class T, class TKey>
-	struct HashTable<T, TKey>::HashFunction2
-	{
-		int operator()(const TKey& key, const int tableSize) const
-		{
-			const std::string s = toString(key);
-			return HashFunctionHorner(s, tableSize, tableSize - 1);
-		}
-	};
 
 	/*default constructor*/
 	template <class T, class TKey>
