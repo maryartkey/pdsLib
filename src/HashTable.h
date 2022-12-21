@@ -42,28 +42,12 @@ namespace pdsLib
 
 		/*vector allocated memory (used for hashing)*/
 		int bufferSize;
-
+				
+	public:
 		/*double hash method:
 		two hash functions that return coprime natural numbers*/
-		struct HashFunction1
-		{
-			int operator()(const TKey& key, const int tableSize) const
-			{
-				const std::string s = toString(key);
-				return HashFunctionHorner(s, tableSize, tableSize + 1);
-			}
-		};
-		struct HashFunction2
-		{
-			int operator()(const TKey& key, const int tableSize) const
-			{
-				const std::string s = toString(key);
-				return HashFunctionHorner(s, tableSize, tableSize - 1);
-			}
-		};
-
-	public:
-		
+		struct HashFunction1;
+		struct HashFunction2;
 
 		/*default constructor*/
 		HashTable();
@@ -97,6 +81,28 @@ namespace pdsLib
 	private:
 		/*Insert element at current vector hash table*/
 		void Insert(const T&, const TKey&, const HashFunction1& hash1 = HashFunction1(), const HashFunction2& hash2 = HashFunction2());
+	};
+
+	/*double hash method:
+two hash functions that return coprime natural numbers*/
+	template <class T, class TKey>
+	struct HashTable<T, TKey>::HashFunction1
+	{
+		int operator()(const TKey& key, const int tableSize) const
+		{
+			const std::string s = toString(key);
+			return HashFunctionHorner(s, tableSize, tableSize + 1);
+		}
+	};
+
+	template <class T, class TKey>
+	struct HashTable<T, TKey>::HashFunction2
+	{
+		int operator()(const TKey& key, const int tableSize) const
+		{
+			const std::string s = toString(key);
+			return HashFunctionHorner(s, tableSize, tableSize - 1);
+		}
 	};
 
 	/*return string from T*/

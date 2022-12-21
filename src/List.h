@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <cassert>
+#include <memory>
+
 
 namespace pdsLib
 {

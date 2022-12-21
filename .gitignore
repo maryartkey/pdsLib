@@ -34,3 +34,4 @@
 # Other
 *.vs
 *.build
+/build

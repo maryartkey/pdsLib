@@ -4,6 +4,8 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <memory>
+
 
 namespace pdsLib
 {
@@ -77,7 +79,7 @@ namespace pdsLib
 
 	/*constructor*/
 	template <class T>
-	Array<T>::Array<T>() {}
+	Array<T>::Array() {}
 
 	/*constructor used to add elements*/;
 	template <class T>

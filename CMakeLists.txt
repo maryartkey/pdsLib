@@ -2,31 +2,37 @@
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#-----------------------------------------#
+#----------------project--------------------#
 
 project(pdsLib VERSION 1.0 LANGUAGES CXX)
 
-add_executable(pdsLib src/main.cpp)
+#------------create static lib--------------#
 
-add_library(pdsLib-lib INTERFACE)
+add_library(pdsLib_lib STATIC src/source.cpp src/Array.h)
 
-target_include_directories(pdsLib-lib INTERFACE
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>
-)
+target_include_directories(pdsLib_lib PUBLIC ./src)
 
-target_compile_features(pdsLib-lib INTERFACE cxx_std_14)
+add_executable(pdsLib_a src/main.cpp)
 
-add_library(pdsLib::library ALIAS pdsLib-lib)
+target_link_libraries(pdsLib_a PRIVATE pdsLib_lib)
 
-#------------------test-------------------#
+#--------------create dll lib---------------#
+
+add_library(pdsLib_dll SHARED src/source.cpp)
+
+target_include_directories(pdsLib_dll PUBLIC ./src)
+
+add_executable(pdsLib_d src/main.cpp)
+
+target_link_libraries(pdsLib_d PRIVATE pdsLib_dll)
+
+
+#-------------------test-------------------#
 
 add_subdirectory(test)
 
-#------------------docs-------------------#
+#-------------------docs-------------------#
 
-add_subdirectory(doc)
+#add_subdirectory(doc)
 
-#-----------------------------------------#
-
-
+#------------------------------------------#
