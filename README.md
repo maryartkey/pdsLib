@@ -2,112 +2,140 @@
 
 pdsLib is a C++ library including persistent variants of a bi-directional list, a dynamic array, and a hash table. 
 
-### List (двусвязный персистентный список)
+### List (bi-directional list)
 
-#### *Constructor*
+#### *Constructor:*
 
 List(); 
 
-#### *List-constructor used to pop front*
+#### *List-constructor used to pop front:*
 
 List(std::shared_ptr<Element<T>>, List const&); 
 
-####  *List-constructor used to add head element*
+####  *List-constructor used to add head element:*
 
 List(T, List const&);
 
-####  *List-constructor used to add tail element*
+####  *List-constructor used to add tail element:*
 
 List(List const&, T);
 
-#### *Is empty flag*
+#### *Is empty flag:*
 
 bool IsEmpty() const; 
 
+#### *Get num of elements in List:*
 
-int Count() const; *get num of elements in List*
+int Count() const;
 
+#### *Return new List with added head element:*
 
-List<T> AddHead(T) const; *return new List with added head element*
+List<T> AddHead(T) const;
 
+#### *Return new List with added tail element:*
 
-List<T> AddTail(T) const; *return new List with added tail element*
+List<T> AddTail(T) const;
 
+#### *Take and return new List from 0 to int elements:*
 
-List<T> Take(int) const; *take and return new List from 0 to int elements*
+List<T> Take(int) const;
 
+#### *Get element of List by index:*
 
-T Get(int) const; *get element of List by index*
+T Get(int) const;
 
+#### *Set element of List by index:*
 
-List<T> Set(int, T) const; *set element of List by index*
+List<T> Set(int, T) const;
 
+#### *Insert element in List by index:* 
 
-List<T> Insert(T, int index = 0) const; *insert element in List by index*
+List<T> Insert(T, int index = 0) const;
 
+#### *Delete element in List by index:*
 
-List Remove(int) const; *delete element in List by index*
+List Remove(int) const;
 
+#### *Print all List:*
 
-void PrintAll() const; *print all List*
+void PrintAll() const;
 
-### Array (динамический персистентный массив)
+### Array (dynamic persistent array)
 
+#### *Constructor:*
 
-Array(); *constructor*
+Array(); 
 
+#### *Constructor used to add elements:*
 
-Array(std::shared_ptr<Element>, Array const&); *constructor used to add elements*
+Array(std::shared_ptr<Element>, Array const&);
 
+#### *Constructor used to remove elements:*
 
-Array(int, Array const&); *constructor used to remove elements*
+Array(int, Array const&);
 
+#### *Is empty flag:*
 
-bool IsEmpty() const; *is empty flag*
+bool IsEmpty() const;
 
+#### *Get num of elements in Array:*
 
-int Count() const; *get num of elements in Array*
+int Count() const;
 
+#### *Return new Array with added element:*
 
-Array Add(const T&) const; *return new Array with added element*
+Array Add(const T&) const;
 		
+#### *Return new Array with removed element:*
 
-Array Remove(const T&) const; *return new Array with removed element*
+Array Remove(const T&) const;
 
+#### *Find element in Array:*
 
-bool Find(const T&) const; *find element in Array*
-		
+bool Find(const T&) const;
 
-void PrintAll() const; *print all elements from Array*
+#### *Print all elements from Array:*
 
-### HashTable (ассоциативный массив на основе хеш-таблицы)
+void PrintAll() const;
 
+### HashTable
 
-HashTable(); *constructor*
+#### *Constructor:* 
 
+HashTable();
 
-HashTable(std::shared_ptr<Element>, HashTable const&); *constructor used to add elements*
+#### *Constructor used to add elements:* 
 
+HashTable(std::shared_ptr<Element>, HashTable const&);
 
-HashTable(int, HashTable const&); *constructor used to remove elements*
+#### *Constructor used to remove elements:*
 
+HashTable(int, HashTable const&);
 
-bool IsEmpty() const; *is empty flag*
+#### *Is empty flag:*
 
+bool IsEmpty() const;
 
-int Count() const; *get num of elements in HashTable*
+#### *Get num of elements in HashTable:*
 
+int Count() const;
 
-void Hash(std::shared_ptr<Element> element, const HashFunction1& hash1 = HashFunction1(), const HashFunction2& hash2 = HashFunction2()); *change keys*
+#### *Change keys:*
 
+void Hash(std::shared_ptr<Element> element, const HashFunction1& hash1 = HashFunction1(), const HashFunction2& hash2 = HashFunction2());
 
-HashTable Add(const T&) const; *return new HashTable with added element*
-		
+#### *Return new HashTable with added element:*
 
-HashTable Remove(const T&) const; *return new HashTable with removed element*
+HashTable Add(const T&) const;
 
+#### *Return new HashTable with removed element:*
 
-bool Find(const T&) const; *find element in HashTable*
-		
+HashTable Remove(const T&) const;
 
-void PrintAll() const; *print all elements from HashTable*
+#### *Find element in HashTable:*
+
+bool Find(const T&) const;
+
+#### *Print all elements from HashTable:*
+
+void PrintAll() const;
