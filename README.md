@@ -8,19 +8,21 @@ pdsLib is a C++ library including persistent variants of a bi-directional list, 
 
 List(); 
 
-#### *list-constructor used to pop front*
+#### *List-constructor used to pop front*
 
 List(std::shared_ptr<Element<T>>, List const&); 
 
+####  *List-constructor used to add head element*
 
+List(T, List const&);
 
-List(T, List const&); *list-constructor used to add head element*
+####  *List-constructor used to add tail element*
 
+List(List const&, T);
 
-List(List const&, T); *list-constructor used to add tail element*
+#### *Is empty flag*
 
-
-bool IsEmpty() const; *is empty flag*
+bool IsEmpty() const; 
 
 
 int Count() const; *get num of elements in List*
