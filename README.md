@@ -1,11 +1,16 @@
 ## pdsLib
+
+pdsLib is a C++ library including persistent variants of a bi-directional list, a dynamic array, and a hash table. 
+
 ### List (двусвязный персистентный список)
 
+*Constructor*
+List(); 
 
-List(); *constructor*
 
 
-List(std::shared_ptr<Element<T>>, List const&); *list-constructor used to pop front*
+List(std::shared_ptr<Element<T>>, List const&); 
+*list-constructor used to pop front*
 
 
 List(T, List const&); *list-constructor used to add head element*
